@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   constructor(private _authService: AuthService) { }
 
   ngOnInit() {
-    console.log(this.valuesFromHome);
   }
 
   register() {

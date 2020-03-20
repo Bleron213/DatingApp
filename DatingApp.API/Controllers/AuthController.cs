@@ -49,6 +49,10 @@ namespace DatingApp.API.Controllers
 
         public async Task<IActionResult> Login(UserForLoginDTO userForLoginDTO)
         {
+
+
+            // exceptions are handled using try/catch or a better way
+            // the better way is the global exception handler
             var userFromRepo = await _repo.Login(userForLoginDTO.Username.ToLower(), userForLoginDTO.Password);
 
             if (userFromRepo == null) {

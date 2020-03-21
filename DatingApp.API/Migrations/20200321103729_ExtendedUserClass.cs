@@ -7,10 +7,6 @@ namespace DatingApp.API.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Password",
-                table: "Users");
-
             migrationBuilder.AddColumn<string>(
                 name: "City",
                 table: "Users",
@@ -61,11 +57,6 @@ namespace DatingApp.API.Migrations
 
             migrationBuilder.AddColumn<string>(
                 name: "LoookingFor",
-                table: "Users",
-                nullable: true);
-
-            migrationBuilder.AddColumn<byte[]>(
-                name: "PasswordHash",
                 table: "Users",
                 nullable: true);
 
@@ -142,16 +133,6 @@ namespace DatingApp.API.Migrations
             migrationBuilder.DropColumn(
                 name: "LoookingFor",
                 table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "PasswordHash",
-                table: "Users");
-
-            migrationBuilder.AddColumn<byte[]>(
-                name: "Password",
-                table: "Users",
-                type: "BLOB",
-                nullable: true);
         }
     }
 }

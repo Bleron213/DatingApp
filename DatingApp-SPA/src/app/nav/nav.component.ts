@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   model: any = {};
+  photoUrl: string;
 
   constructor(
     // tslint:disable-next-line: variable-name
@@ -21,7 +22,11 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this._authService.currentPhotoUrl.subscribe(photoUrl => {
+      this.photoUrl = photoUrl;
+    });
   }
+
   login() {
     this._authService.login(this.model)
     .subscribe(
@@ -42,6 +47,9 @@ export class NavComponent implements OnInit {
   }
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this._authService.decodedToken = null;
+    this._authService.currentUser = null;
     this._alertify.message('Logged out');
     this.router.navigate(['/home']);
   }

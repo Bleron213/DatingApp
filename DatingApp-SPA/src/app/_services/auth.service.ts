@@ -41,10 +41,10 @@ export class AuthService {
     );
   }
 
-  register(model: any) {
+  register(user: User) {
     console.log('register() method in service called');
 
-    return this._httpClient.post(this.baseUrl + 'register', model);
+    return this._httpClient.post(this.baseUrl + 'register', user);
   }
 
 

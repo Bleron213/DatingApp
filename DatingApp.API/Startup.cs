@@ -59,6 +59,8 @@ namespace DatingApp.API
                         };
                     });
 
+            services.AddScoped<LogUserActivity>();
+
             //ordering isn't important
         }
 
